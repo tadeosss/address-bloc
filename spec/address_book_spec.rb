@@ -84,6 +84,33 @@
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
 
+   describe "#import_from_csv_2" do
+     it "imports the correct number of entries" do
+       book.import_from_csv_2("entries_2.csv")
+       book_size = book.entries.size
  
+       expect(book_size).to eq 3
+     end
+     
+     it "imports from first entry" do
+      book.import_from_csv_2("entries_2.csv")
+      entry_one = book.entries[2]
+      check_entry(entry_one, "Virginia", "202-555-1234", "virginia@bloc.io")
+     end
+     
+     it "imports from second entry" do
+      book.import_from_csv_2("entries_2.csv")
+      entry_two = book.entries[1]
+      check_entry(entry_two, "Mary", "571-555-1234", "mary@bloc.io")
+     end
+     
+     it "imports from third entry" do
+      book.import_from_csv_2("entries_2.csv")
+      entry_three = book.entries[0]
+      check_entry(entry_three, "Baltimore", "703-555-5678", "baltimore@bloc.io")
+     end
+     
+    end
+    
    end
  end
