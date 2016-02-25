@@ -84,7 +84,7 @@
        check_entry(entry_five, "Sussie", "555-555-2036", "sussie@blocmail.com")
      end
 
-<<<<<<< HEAD
+
    #Test the binary_search method
    describe "#binary_search" do
      it "searches AddressBook for a non-existent entry" do
@@ -135,7 +135,7 @@
        expect(entry).to be_nil
      end  
      
-=======
+
    describe "#import_from_csv_2" do
      it "imports the correct number of entries" do
        book.import_from_csv_2("entries_2.csv")
@@ -164,6 +164,6 @@
      
     end
     
->>>>>>> master
+
    end
  end
