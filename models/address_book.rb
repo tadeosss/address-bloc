@@ -42,11 +42,7 @@ class AddressBook
      end
     end
     
-<<<<<<< HEAD
-    def binary_search(name)
-        lower = 0
-        upper = entries.length - 1
-=======
+
     def import_from_csv_2(file_name)
      csv_text = File.read(file_name)
      csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
@@ -55,8 +51,10 @@ class AddressBook
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
      end
     end
->>>>>>> master
-    
+
+    def binary_search(name)
+        lower = 0
+        upper = entries.length - 1
         while lower <= upper
            mid = (lower + upper) / 2
            mid_name = entries[mid].name
