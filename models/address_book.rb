@@ -1,4 +1,3 @@
-
 require_relative 'entry'
 require "csv"
 
@@ -22,15 +21,12 @@ class AddressBook
     
     def remove_entry(name, phone_number, email)
         delete_entry = nil
-        
         entries.each do |entry|
             if name == entry.name && phone_number == entry.phone_number && email == entry.email
                 delete_entry = entry
             end
         end
-        
         @entries.delete(delete_entry)
-
     end
     
     def import_from_csv(file_name)
@@ -41,12 +37,7 @@ class AddressBook
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
      end
     end
-    
-<<<<<<< HEAD
-    def binary_search(name)
-        lower = 0
-        upper = entries.length - 1
-=======
+
     def import_from_csv_2(file_name)
      csv_text = File.read(file_name)
      csv = CSV.parse(csv_text, headers: true, skip_blanks: true)
@@ -55,12 +46,13 @@ class AddressBook
        add_entry(row_hash["name"], row_hash["phone_number"], row_hash["email"])
      end
     end
->>>>>>> master
-    
+
+    def binary_search(name)
+        lower = 0
+        upper = entries.length - 1
         while lower <= upper
            mid = (lower + upper) / 2
            mid_name = entries[mid].name
-     
            if name == mid_name
              return entries[mid]
            elsif name < mid_name
@@ -71,4 +63,18 @@ class AddressBook
         end
         return nil
     end
+    
+	def iterative_search(name)
+		i = 0
+		
+		while i <= (entries.length - 1)
+			if entries == name
+				return entries[i]
+			else
+				i += 1
+			end
+		end
+		return nil
+	end
+    
 end
