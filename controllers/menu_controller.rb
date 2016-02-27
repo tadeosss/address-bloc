@@ -205,7 +205,7 @@ class MenuController
     end
 
     if selection_integer < @address_book.entries.count
-      puts @address_book.entries[selection_integer]
+      puts @address_book.entries[selection_integer - 1]
       puts "Press enter to return to the main menu"
       gets.chomp
       system "clear"
