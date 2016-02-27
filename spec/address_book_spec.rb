@@ -210,5 +210,16 @@
 			expect(entry).to be_nil
 		end
 	end
+	
+	describe "#demolish" do
+		it "should delete all entries" do
+			book.add_entry("Ada Lovelace", "202-555-1234", "ada@bloc.io")
+			book.add_entry("Ada Lovelace", "202-555-1234", "ada@bloc.io")
+			book.add_entry("Ada Lovelace", "202-555-1234", "ada@bloc.io")
+			
+			book.demolish
+			expect(book.entries.size).to eq 0
+		end
+	end
 
 end
